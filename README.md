@@ -4,9 +4,15 @@ Este projeto tem como objetivo proporcionar ao aluno uma primeira experiência d
 
 ## Produto:
 
-Pretende-se que o aluno desenvolva uma aplicação Web para registo de objetos emprestados pelo utilizador. No mínimo, a aplicação deve realizar as seguintes funcionalidades: registar um empréstimo de um objeto a indicar, numa data a indicar, a uma pessoa a indicar; registar a devolução de um objeto emprestado, numa data a indicar; e ver uma lista de objetos emprestados atualmente. O aluno poderá acrescentar mais funcionalidades se assim o entender. A aplicação Web não deve fazer uso de uma base de dados externa. Deverá usar o conceito de local storage disponibilizado no HTML5.
+Pretende-se que o aluno desenvolva uma aplicação Web para registo de objetos emprestados pelo utilizador. No mínimo, a aplicação deve realizar as seguintes funcionalidades: 
+- registar um empréstimo de um objeto a indicar, numa data a indicar, a uma pessoa a indicar; 
+- registar a devolução de um objeto emprestado, numa data a indicar;
+- ver uma lista de objetos emprestados atualmente. 
 
-Processo e datas de entrega:
+O aluno poderá acrescentar mais funcionalidades se assim o entender. A aplicação Web não deve fazer uso de uma base de dados externa. Deverá usar o conceito de local storage disponibilizado no HTML5.
+
+## Processo e datas de entrega:
+
 O trabalho é individual.
 
 ## 1ª fase 
