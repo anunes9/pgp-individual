@@ -1,0 +1,710 @@
+%Modelo Descentralizado- Especificar como a equipa vai funcionar.
+%Conclusão do COCOMO
+
+%formatação do documento e tipo do documento
+\documentclass[12pt, a4paper, twoside]{report} %inicio do doc
+
+%pacotes de extensões
+\usepackage[portuges]{babel} %pkg da lingua portugues
+\usepackage[latin1,utf8]{inputenc} %pkg da lingua portugues
+\usepackage{verbatim} %pkg para escrever sem formataçao
+\usepackage{color} %usar cores nas letras
+\usepackage{graphicx} %usar imagens no doc
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{makeidx}
+\usepackage{anysize} % para formatar o tamanho do documento
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{wrapfig}
+\usepackage{footnote}
+
+\marginsize{3.17cm}{3.17cm}{2.54cm}{2.54cm}
+
+%fazer índice
+\makeindex
+
+\begin{document}
+
+\title{%
+	\textbf{Planeamento e Gestão de Projecto}\\ 
+	\large 3º Relatório
+}
+
+\author{%
+Francisco Pires, nº 44314 \\
+Alexandre Machado, nº 43551 \\
+}
+
+\date{\today}
+\maketitle
+%mostrar indice
+\tableofcontents
+
+%--------------------------------------------------------------------------------------------- Feito
+\chapter{Introdução}
+
+Este projecto tem como objectivo o desenvolvimento e a implementação de um Sistema de Informação (SI) para uma plataforma de partilha de música e venda de bilhetes para concertos.
+\\
+
+\noindent Após consulta de serviços \textit{web} de \textit{streaming} de música (\textit{spotify}), divulgação directa de música pelos artistas (\textit{bandcamp} e \textit{soundcloud}) e venda de bilhetes para eventos (\textit{ticketline} e \textit{ticketmaster}), decidimos propor um projecto que congregue numa plataforma única, as funcionalidades disponibilizadas por estes serviços, e tentando propor novos requisitos funcionais para melhor enquadrar o SI.
+\\
+
+\noindent Este SI é baseado em tecnologias \textit{web}, nas quais vamos procurar dar ênfase no uso de dispositivos \textit{mobile}. A razão  para o reforço das tecnologias \textit{mobile} prende-se, por um lado, com o uso cada vez mais generalizado destes dispositivos, e por outro lado, porque o âmbito do projecto se adequa à implementação destes requisitos funcionais nos referidos dispositivos.
+
+%--------------------------------------------------------------------------------------------- Feito
+
+\chapter{Análise de requisitos}
+
+\section{Requisitos funcionais e não funcionais}
+
+\subsection{Requisitos funcionais}
+
+De acordo com os objectivos definidos para este projecto, selecionamos as seguintes funcionalidades que o utilizador terá disponíveis neste SI.
+
+\begin{enumerate}
+
+\item \textit{Upload} de conteúdos vídeo e áudio gratuito ou com opção de pagamento
+	\begin{itemize}
+	\item Singles, albuns, videoclips, curtas e \textit{playlists}
+	\end{itemize}
+	
+\item Criação e manutenção de eventos
+    \begin{itemize}
+    \item Divulgação e venda de entradas para eventos ao vivo
+    \item Local, data, e participantes
+    \end{itemize}
+    
+\item Registo e manutenção de um perfil
+	\begin{itemize}
+	\item Criação  e alteração da \textit{password}, username, heterónimos e informação pessoal
+	\end{itemize}
+
+\item Registo e manutenção de perfil de bandas/artistas
+    \begin{itemize}
+    \item Ferramenta de publicação de conteúdos
+    \item Listagem de artistas participantes na banda
+    \item Eventos em que vão participar e editoras e/ou promotores associados
+    \end{itemize}
+    
+\item Registo e manutenção de perfil de editoras e promotores
+	\begin{itemize}
+	\item Editoras listam todas as bandas e edições publicadas
+    \item Promotores listam eventos com uma ou várias bandas
+	\end{itemize}
+	
+\clearpage
+	
+\item Partilha de eventos \textit{On-The-Go}
+	\begin{itemize}
+	\item Eventos que não foram previamente anunciados, que estão a acontecer no momento da publicação
+	\item O utilizador assinala a localização do evento e escreve uma breve descrição sobre ele
+    \item Possível associação de uma banda a um evento \textit{On-The-Go}
+	\end{itemize}
+	
+\item Modelo de \textit{follow}
+	\begin{itemize}
+	\item Permite receber notificações sobre determinadas bandas/eventos
+	\end{itemize}
+	
+\item Partilha de conteúdo com outros utilizadores (\textit{share/listen})
+    \begin{itemize}
+    \item Definição da visibilidade do conteúdo.
+    \end{itemize}
+    
+\item Recomendações profissionais (artistas a recomendar outros artistas)
+
+\item Página principal - \textit{mural}
+    \begin{itemize}
+    \item Aparece o conteúdo partilhado por perfis que seguimos
+    \end{itemize}
+    
+\item Sistema de recomendações automático (\textit{if you like this then you may like that})
+
+\item \textit{Sound System}
+    \begin{itemize}
+    \item Sincronizam a música para fazer um sistema de som, com vários dispositivos na mesma rede.
+    \end{itemize}
+    
+\item \textit{Show Me}
+	\begin{itemize}
+	\item Mostrar que conteúdo está a ser ouvidos pelos utilizadores de dispositivos mobile num determinado raio de proximidade
+    \item Definição de visibilidade por terceiros
+	\end{itemize}
+	
+\item Para as opções monetárias, usar \textit{satoshi}
+    \begin{itemize}
+    \item um \textit{satoshi} é uma ínfima parte de uma \textit{bitcoin} (1 \textit{satoshi}	= 0.00000001 \textit{bitcoin})
+    \item Usada com o objectivo de criar um registo de transações sem valor comercial
+    \item Apenas para efeitos de desenvolvimento. Substituído por bitcoin ou outros meios de pagamento em fase de produção
+
+    \end{itemize}
+    
+\item Partilha de conteudos e gestão de \textit{logins} atraves da integração com o \textit{Facebook} e \textit{Twitter}
+
+\end{enumerate}
+
+
+%--------------------------------------------------------------------------------------------- Feito
+
+\subsection{Requisitos não funcionais}
+
+Para execução das funcionalidades neste SI, será necessário assegurar os requisitos não funcionais que listamos de seguida.
+
+\begin{enumerate}
+\item Música por \textit{cache}
+    \begin{itemize}
+    \item A música que se encontra na mesma rede local (em cache ou em memória), é partilhada usando \textit{p2p} para não sobrecarregar o servidor.
+    \end{itemize}
+\item Confidencialidade dos dados
+	\begin{itemize}
+	\item Nas transferências de dinheiro relativas às compra de bilhetes
+	\item No conteúdo partilhado pelos artistas em modo restrito (para uma lista de utilizadores previamente definidos)
+	\end{itemize}
+\item Segurança dos dados e dos acessos
+	\begin{itemize}
+	\item O acesso aos dados de um utilizador especifico vai ser permitido mediante escolha da visibilidade desse conteúdo (pública, restrita e privada).
+	\end{itemize}
+\item Garantia de disponibilidade
+	\begin{itemize}
+	\item Garantir que a plataforma está sempre acessível online (24/7).
+	\end{itemize}
+\item Escalável e modular
+	\begin{itemize}
+	\item Capacidade de poder aumentar a capacidade de servir um maior número de clientes, iniciando paralelamente mais instâncias do servidor de aplicação e de \textit{web}
+	\end{itemize}
+\item Tempo de resposta
+	\begin{itemize}
+	\item O servidor terá a resposta pronta num tempo inferior a 500ms
+	\end{itemize}
+\item Persistência, sincronização dos dados e disponibilidade
+	\begin{itemize}
+	\item A informação guardada nos vários servidores vai ser distribuída por várias instâncias. Estas instâncias vão ser sincronizados automaticamente para não haver falhas de persistência e de sincronização, e para alem disso, vai permitir uma rápida recuperação para o SI poder tolerar falhas de hardware
+	\end{itemize}
+\item Notificações e alertas de acontecimentos do utilizador
+\begin{itemize}
+\item Estas serão enviadas para os utilizadores via email ou telemóvel
+\end{itemize}
+\item \textit {Responsive Web Design}
+\begin{itemize}
+\item Garantir que o SI pode ser acedido por dispositivos \textit{mobile} e que nestas plataformas os requisitos funcionais definidos anteriormente funcionem correctamente
+\end{itemize}
+\end{enumerate}
+
+\section{Modelo de casos de uso}
+\subsection{Casos de Uso textuais}
+
+\subsubsection{Compra de Bilhetes}
+\\
+\\
+Ator Principal: Utilizador
+\\
+Interesses: O utilizador pretende comprar um bilhete para um evento
+\\
+\\
+Pré-condições: O utilizador está registado na plataforma.
+\\
+Pós-condições: O utilizador adquire um bilhete para o evento.
+\\
+\\
+Cenário principal de sucesso:
+\begin{enumerate}
+
+\item O utilizador dirige-se a página do evento.
+\item O sistema devolve a informação sobre o evento(preço, localização, descrição)
+\item O utilizador indica que quer comprar um bilhete para o evento.
+\item O sistema redireciona o utilizador para uma página segura com informação sobre o evento que deseja comprar bilhete e quanto bilhetes deseja comprar.
+\item O utilizador indica o número de bilhetes que quer comprar.
+\item O sistema devolve o total atualizado conforme o nº indicado e com o stock disponível.
+\item O utilizador indica que quer prosseguir com a compra.
+\item O sistema pergunta que tipo de pagamento o utilizador vai utilizar
+\begin{enumerate}
+\item O utilizador indica que vai utilizar Cartão de Credito.
+\item O sistema devolve os campos necessários para efetuar a compra com o método selecionado(NºCartão de Credito,CVV,Data de Validade,NIF)
+\item O utilizador indica que vai utilizar Satoshi
+\item O sistema devolve um código QR e um endereço com a carteira e o montante a pagar a ser utilizado pelo cliente para transferir os satoshi’s
+\item O utilizador completa o pagemento utilizado o método que preferir
+\item O sistema informa que o pagamento foi efetuado com sucesso e envia para a conta de email registada no utilizador com os bilhetes adquiridos.
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+Cenários alternativos: 
+	3b. O sistema indica ao utilizador que o evento se encontra esgotado.
+	5b. O sistema indica ao utilizador que o nº de bilhetes pedido não se encontra disponível.
+	9b. O sistema informa que a tentativa de pagamento falhou, e indica para este tentar outra vez
+
+
+
+
+
+\chapter{Planeamento}
+
+\section{Recursos}
+
+\textbf{Recursos Humanos}
+\\
+
+Os recursos humanos para o projecto incluem seis alunos de Tecnologias de Informação (LTI), sendo que os quatro alunos não presentes neste relatório são ficticios. 
+No final da cadeira de Planeamento e Gestão do Projecto (PGP), os dois grupos irão juntar-se e trabalhar em conjunto nas cadeiras de Projecto Tecnologias de Informação (PTI) e Projecto Tecnologias de Redes (PTR). A duração total do projecto será de sete meses, sendo três meses e meio dedicados ao planeamento (PGP).
+\\
+\\
+\textbf{Disponibilidade}
+\\
+
+A disponibilidade dos alunos é conforme apresentada na seguinte tabela:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c c|}
+\hline
+\multirow{2}{*}{} & \multicolumn{2}{c|}{Disponibilidade} \\ \cline{2-3} 
+                  		& 1ºSemestre        & 2ºSemestre       \\ \hline
+Colega Edgar \footnotemark      & 20\%              & 28,6\%             \\ \hline
+Colega Esperança \footnotemark  & 20\%              & 33,3\%           \\ \hline
+Colega Emídio \footnotemark     & 20\%              & 40\%           \\ \hline
+Francisco Pires                 & 20\%              & 28,6\%           \\ \hline
+Alexandre Machado               & 20\%              & 28,6\%           \\ \hline
+Colega Eva\footnotemark         & 20\%              & 33,6\%                \\ \hline
+\end{tabular}
+\caption{Tabela de Disponibilidade}
+\label{disponibilidade}
+\end{table}
+
+\footnotetext{Os alunos em questão são fictícios, visto que não vão efectuar
+a cadeira de PTI/PTR. A disponibilidade foi simulada por valores reais.}
+
+\clearpage
+
+%---------------------------------------------------------------------------------------------
+
+\noindent{\textbf{Organização da equipa}}
+\\
+\\
+A organização dos membros da equipa vai ser feita em três grupos. Os grupos constituídos são um grupo para PTR, outro para PTI e um último grupo para os “elementos móveis”.Estes alunos vão contribuir em conjunto para o trabalho de ambas as cadeiras. A decisão de organizar o projecto distribuído em três grupos surgiu para dar a resposta ao facto de dois membros terem competências equivalentes em PTI, PTR e disponibilidade acrescida para as necessidades de cada departamento do projeto.
+
+\begin{itemize}
+\item Grupo PTR
+\begin{itemize}
+	\item Francisco Pires
+	\item Colega Edgar
+\end{itemize}
+\item Grupo PTI
+\begin{itemize}
+	\item Colega Eva
+	\item Colega Emidio
+\end{itemize}
+\item \textit{Elementos Moveis}
+\begin{itemize}
+	\item Alexandre Machado
+	\item Colega Esperança
+\end{itemize}
+\item Gestor de Projecto
+\begin{itemize}
+	\item Alexandre Machado
+\end{itemize}
+\end{itemize}
+
+\noindent{\textbf{Tabela de Competências}}
+%COMPLETAR AS COLUNAS DE DESIGN E RH
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c c c c c c c|}
+\hline
+                  & PHP & Java & HTML & CSS & Python & Interface & Gestão   \\ \hline
+Colega Emidio     & 3   & 4    & 3    & 2   & 3      & 2         & 1        \\ \hline
+Colega Eva        & 3   & 3    & 3    & 3   & 3      & 3         & 2        \\ \hline
+Colega Edgar      & 3   & 3    & 3    & 3   & 3      & 3         & 1        \\ \hline
+Francisco Pires   & 2   & 4    & 4    & 3   & 4      & 2         & 2        \\ \hline
+Alexandre Machado & 2   & 4    & 3    & 3   & 4      & 3         & 3        \\ \hline
+Colega Esperança  & 2   & 4    & 3    & 3   & 2      & 3         & 1        \\ \hline
+\end{tabular}
+\caption{Tabela de Competências}
+\label{competencias}
+\end{table}
+
+\clearpage
+
+%---------------------------------------------------------------------------------------------
+
+\section{Estimação}
+
+Para a realização da tabela relativa aos dados históricos, foram escolhidas as cadeiras em que a matéria dos projectos se encaixa no âmbito do projecto.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c c c c c c|}
+\hline
+                  & AD        & ASW       & ITW     & ADS     & SO     & PTI/PTR \\ \hline
+Alexandre Machado & 1002/160h & 2576/160h & 756/72h & 454/18h & 560/42h  & 4910/380h\\ \hline
+Francisco Pires   & 1002/160h & NA        & 687/5h  & NA      & 775/50h  & 4910/380h \\ \hline
+\end{tabular}
+\caption{ Dados Históricos (\textit{Lines of Code} e horas).}
+\label{my-label}
+\end{table}
+
+\subsection{Esforço disponível}
+
+\begin{itemize}
+
+\item 1º semestre (duração: 3,5 meses)
+\begin{equation}
+20+20+20 = 60 \ (0,6 \ pessoas)
+\end{equation}
+\begin{equation}
+E = 0,6 \ . \ 3,5 = 2,1 \ PM
+\end{equation}
+\item 2º semestre (duração: 3,5 meses)
+\begin{equation}
+28,6+28,6+40+33,3+28,6+33,6 = 192,7 \ (1,927 \ pessoas)\\
+\end{equation}
+\begin{equation}
+\ E = 1,88 \ . \ 3,5 = 6,58 \ PM
+\end{equation}
+\item Total
+\begin{equation}
+\ E = 2,1 \ + \ 6,58 = 8,68 \ PM
+\end{equation}
+\end{itemize}
+
+\subsection{Linhas de código}
+
+As linhas de código previstas para o projecto foram são conforme apresentadas na seguinte tabela. Para o calculo final das LOC, foi usada a seguinte equação:
+\\
+\\
+
+\begin{equation} S = \ \bigg({Sotim + 4 . Sprov + Spess \over 6}\bigg)
+\end{equation}
+
+\clearpage
+
+\begin{savenotes}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c c c c|}
+\hline
+                       					& Optimista  & Provável & Pessimista & \textbf{Final}\\ \hline
+Criar Modelo da Base de Dados(NoSQL)  	& 200       & 400      & 600        & 400   		 \\ \hline
+Configurar Nginx \textit{HTTP Server} 	& 5         & 20       & 50         & 22    		 \\ \hline
+Implementar CDN com API \footnote{CDN - \textit{Content Delivery Network} para melhor distribuição de conteudos}
+										& 100       & 350       & 500       & 333    		 \\ \hline
+Sistema de P2P \footnote{\textit{Peer-to-Peer} para o requisito de música em \textit{cache}}
+                                        & 800       & 1100      & 1600      & 1134   	     \\ \hline
+Sistema Distribuído	                    & 100       & 270       & 400       & 264   		 \\ \hline
+\textit{Views}            				& 1500      & 2000      & 3000      & 2084  		 \\ \hline
+Controlador                 			& 500       & 850       & 1100      & 834   		 \\ \hline
+Modelo                      			& 50        & 150       & 250       & 150   		 \\ \hline
+Sistema de Pagamento                    & 100       & 250       & 400       & 250   		 \\ \hline
+Configurações de Rede                   & 20        & 40        & 60        & 40     		 \\ \hline
+Construção dos Contentores(\textit{Dockerfile})
+                                        & 40        & 65        & 100       & 67       		 \\ \hline
+\textit{Continuous Intergration}        & 100       & 150       & 250       & 159            \\ \hline
+Servidor Aplicacional                   & 5         & 10        & 15        & 10   		     \\ \hline
+\textbf{Total}		   					& 3520      & 5655      & 8325      & \textbf{5747}  \\ \hline
+\end{tabular}
+\caption{Linhas de Código}
+\label{codigo}
+\end{table}%
+\end{savenotes}
+
+
+%---------------------------------------------------------------------------------------------
+
+\subsection{Modelos Empíricos}
+
+Calculo do esforço orgânico:
+\\
+
+\begin{equation}
+E = a \ . \ KLOC ^ b
+\end{equation}
+
+\begin{equation} E = 2,4 \ \bigg({N.Linhas \over 1000}\bigg)^{1.05}
+\end{equation}
+
+\begin{equation}
+{E = 2,4 \ \bigg({5747 \over 1000}\bigg) ^ {1.05}}
+= 15,05 \ P.M
+\end{equation}
+
+Calculo da Duração:
+
+\begin{equation}
+D = c \ . \ E^d
+\end{equation}
+
+\begin{equation}
+D = 2,5 \ (15,05)^{0,38}= 7\ M
+\end{equation}
+\\
+
+\clearpage
+\section{Processo de Desenvolvimento de Software}
+
+Como processo de desenvolvimento do nosso projeto decidimos usar o Processo Unificado.
+Esta decisão foi baseada numa reflexão da nossa parte, em que, pensámos na forma como trabalhamos e, visto que este projeto não é de forma alguma \textit{full-time}, tivemos de ter isso em conta. O Processo Unificado permite-nos avançar iterativamente e ao mesmo tempo voltar a trás sem que hajam muitos problemas, havendo assim um balanço entre o avançar no projeto e ajustar problemas anteriores, o que achamos que seria perfeito no nosso caso.
+\\
+%\includegraphics[scale=0.6]{image1.png}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.6\textwidth]{image1.png}
+   \caption{Exemplo de um Processo Unificado}
+\end{figure}
+
+
+\textbf{O Processo Unificado divide-se em três fases:}
+\\
+
+\begin{enumerate}
+\item \textit{Inception} – justifica-se a execução do projeto, ou seja, tenta-se adquirir um conhecimento do que irá ser preciso para concluir o projeto e quando concluído, os resultados deste.
+
+\item \textit{Elaboration} – conclui-se de certa forma a fase de \textit{inception}, visitando com mais detalhe todos os fatores de risco, \textit{reward} e recursos que este irá trazer. Convém ser o mais completo e detalhado possível visto que na fase seguinte vai proceder-se à construção do projecto.
+
+\item \textit{Construction \& Transition} – começa-se a construção do que irá ser uma versão operacional do projeto. O foco principal nesta fase é a construção de features discutidas anteriormente. É de valor notar que em projetos de maior dimensão esta fase poderá ter varias iterações. Também nesta fase será feita a transição do ambiente de desenvolvimento para um ambiente de produção, pondo o projecto disponível ao cliente final. De seguida compara-se o estado do projecto nesta fase à fase de \textit{Inception} e se tudo estiver bem, faz-se uma \textit{release}. 
+
+
+\end{enumerate}
+%---------------------------------------------------------------------------------------------
+
+\textbf{Vantagens do Processo Unificado:}
+\begin{itemize}
+\item O cliente não precisa de esperar muito tempo para entrar em contacto com um resultado prático.
+\item Quando terminado o desenvolvimento do projeto é muito dificil encontrar erros dada a facilidade de os corrigir anteriormente.
+\item Os riscos de grau mais elevado são trabalhados em primeiro lugar, dando assim alguma confiança no desenvolvimento do projeto
+\end{itemize}
+
+\textbf{Desvantagens do Processo Unificado:}
+\begin{itemize}
+\item Poderá haver desorganização em períodos mais avançados no projeto.
+\item Aumento de gastos em implementações de varias versões do projetos.
+\end{itemize}
+
+%---------------------------------------------------------------------------------------------
+
+%\section{Planeamento do Projecto}
+
+\section{Gestão de Riscos}
+
+Nesta avaliação dos riscos para o nosso projeto, identificámos que existem três grandes áreas: a de Relações Humanas, a de Tecnologia e a de Desenvolvimento do projeto.\\\\ Na categoria de RH identificámos que os principais problemas têm a haver com a relação entre membros do grupo e o comportamento de cada um. \\\\Consideramos estes riscos bastante importantes visto que uma má dinâmica de grupo pode arruinar o potencial de um projeto.\\\\ Na categoria de Tecnologia identificámos que bugs e a segurança são os principais riscos a ter em conta e, iremos dar ênfase à segurança no projeto, visto que uma das partes mais criticas de qualquer sistema.\\\\ Por ultimo, na categoria de desenvolvimento do projeto, identificámos que, sem surpresa, o maior problema são os atrasos que poderão acontecer, podendo estragar planos e horários planeados para a completação do projeto.\\\\ Em geral achamos que os nossos riscos irão ser de natureza comum a todos os grupos, são riscos que a maioria dos projetos, quer a nível académico ou profissional, encontram, não significando que os podemos levar menos a serio, sendo esta a causa de projetos falhados em varias áreas.
+
+\clearpage
+\subsubsection{Riscos Relativos aos Recursos Humanos (RM)}
+\begin{enumerate}
+\item Má comunicação
+\item Falta de empenho
+\item Falta de conhecimento
+\item Baixa de um membro do grupo
+\item Falta de “química” entre membros do grupo
+\item Atraso na entrega de trabalho de um membro do grupo
+\item Desistência de um membro do grupo
+\end{enumerate}
+\subsubsection{Riscos Relativos às Tecnologias (T)}
+\begin{enumerate}
+\setcounter{enumi}{8}
+\item Má implementação (bugs) de uma funcionalidades
+\item Updates que pioram o funcionamento de funcionalidades
+\item Falta de segurança do projeto
+\end{enumerate}
+\subsubsection{Riscos Relativos ao Cumprimento do Planeamento, e à Entrega (E)}
+\begin{enumerate}
+\setcounter{enumi}{10}
+\item Atrasos na entrega do projeto
+\item Falta de funcionalidades na entrega do projeto final
+\item Requisitos incompletos
+\end{enumerate}
+
+\clearpage
+
+\subsubsection{Tabela de Riscos Ordenada:}
+
+\noindent Na “Probabilidade”, a escala escolhida foi de 0% a 100%.
+No impacto, a escala escolhida foi de 1 a 5, onde 1 significa
+“Baixo impacto” e 5 “Alto impacto” no Produto Final.
+\\
+\noindent Organizamos agora a tabela por impacto x probabilidade.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l l l l|}
+\hline
+Riscos              & Tipo             & Probabilidade & Impacto & P*I \\ \hline
+10                  & Tecnologia       & 80\%   & 3 & 2,4   \\ \hline
+3                   & Recursos Humanos & 70\%   & 3 & 2,1   \\ \hline
+12 					& Desenvolvimento  & 90\%   & 2 & 1,8   \\ \hline
+5             		& Recursos Humanos & 60\%   & 3 & 1,8   \\ \hline
+8        			& Tecnologia       & 80\%   & 2 & 1,6   \\ \hline
+6                   & Recursos Humanos & 70\%   & 2 & 1,4   \\ \hline
+2                   & Recursos Humanos & 50\%   & 2 & 1,0   \\ \hline
+4                   & Recursos Humanos & 50\%   & 2 & 1,0   \\ \hline
+11              	& Desenvolvimento  & 90\%   & 1 & 0,9   \\ \hline
+13                  & Desenvolvimento  & 70\%   & 1 & 0,7   \\ \hline
+1                   & Recursos Humanos & 30\%   & 2 & 0,6   \\ \hline
+7                   & Recursos Humanos & 20\%   & 3 & 0,6   \\ \hline
+9 					& Tecnologia       & 30\%   & 2 & 0,6   \\ \hline
+\end{tabular}
+\caption{Tabela de Riscos}
+\label{riscos}
+\end{table}
+
+\noindent Com a Regra de Pareto (80/20) aplicada à gestão de riscos, temos:
+
+\begin{equation}
+13 \ riscos \ no \ total \ * \ 0,2 = 2,6
+\end{equation}
+
+\noindent Colocaríamos a linha vermelha abaixo dos 3 primeiros riscos, mesmo sabendo que o 4º risco tem a mesma Probabilidade*Impacto, visto que a falta de "química" entre membros do grupo é um problema inexestente para um grupo que só vai fazer o planeamento de um projecto.
+
+\subsubsection{RMMM – Risk, Mitigation, Monitoring \& Management}
+
+Os Project Managers terão mais atenção aos riscos acima da linha vermelha.
+\\
+\\
+\noindent \underline{\textbf{Risco}}: Falta de segurança do projeto
+\\
+\\
+\textbf{Mitigação}:
+\begin{itemize}
+\item Adquirir bons conhecimentos previamente.
+\item Na fase de desenvolvimento, pensar primeiro na segurança, visto que iremos
+tratar com informações sensíveis.
+\item Usar os conhecimentos da cadeira de Segurança Informática para consolidar a construção do sistema.
+\item Testar intensamente, com recurso a DDoS's simulados e tentativas de acessos indevidos.
+\item Definir uma configuração de firewall usando \textit{iptables}.
+\end{itemize}
+\\
+\\
+\textbf{Monitorização}:
+\begin{itemize}
+\item Efetuar testes numa fase final de cada iteração.
+\item Vigiar o sistema para se poder detectar possíveis ataques ao sistema, recorrendo a Sistemas de Detecção de Intrusões como o \textit{snort}
+\item Usar ferramentas de monitorização de ataques maliciosos como o \textit{nmap}.
+\end{itemize}
+\\
+\\
+\textbf{Gestão}:
+\begin{itemize}
+\item Tentar perceber a natureza e o impacto da falha, para uma melhor gestão.
+\item Num caso simples, efectual um \textit{patch} de segunraça, conhecendo a vunerabilidade.
+\item Num caso mas complicado, retirar a aplicação do ambiente de produção para desenvolvimento até resolver o problema.
+\end{itemize}
+\\
+\\
+\noindent \underline{\textbf{Risco}}: Falta de conhecimento
+\\
+\\
+\textbf{Mitigação}:
+\begin{itemize}
+\item Começar a estudar as tecnologias o mais cedo possivel.
+\item Recorrer aos docentes, de apoio ao projeto ou e se necessário outros, que nos poderão ajudar a adquirir os conhecimentos requeridos para a realização do projecto
+\end{itemize}
+\\
+\\
+\textbf{Monitorização}:
+\begin{itemize}
+\item Rever e testar o código a cada funcionalidade.
+\item Vigiar o estado do futuro update, e se necessário, fazer alterações a algumas frameworks utilizadas
+\item Fazer testes regulares.
+\end{itemize}
+\\
+\\
+\textbf{Gestão}:
+\begin{itemize}
+\item Redobrar o esforço no inicio de cada iteração.
+\item Não implementar algumas funcionalidades de menor importância, se as tecnologias utilizadas forem demasiado complexas.
+\end{itemize}
+\\
+\\
+\noindent \underline{\textbf{Risco}}: Falta de funcionalidades na entrega do projeto final
+\\
+\\
+\textbf{Mitigação}:
+\begin{itemize}
+\item Fazer metas intercalares.
+\item Planear para terminar o projeto antes do prazo de entrega.
+\end{itemize}
+\\
+\\
+\textbf{Monitorização}:
+\begin{itemize}
+\item Fazer reuniões semanais para verificar se o projeto cumpre as metas intercalares
+\end{itemize}
+\\
+\\
+\textbf{Gestão}:
+\begin{itemize}
+\item Aumentar o esforço da equipa.
+\item Alocar a equipa para desenvolver as funcionalidades em profundidade e não em largura.
+\end{itemize}
+\\
+\\
+\clearpage
+
+\chapter{Recursos de hardware e software}
+
+Alguns destes pontos vão ser mais detalhados na próxima entrega (capítulo de arquitectura)
+
+\subsubsection{Recursos de software:}
+
+\begin{itemize}
+\item Sistema Operativo: CentOS 7
+\item Servidor Web: Nginx (redirecionado do servidor Django)
+\item Base de dados não-relacional Redis.
+\item Python, versão 2.7 (Usando as \textit{frameworks flask} e \textit{Django})
+\item IDE de Python (\textit{Pycharm Professional}).
+\item Contentores para virtualização: Docker \& Kubernetes.
+\item Web Interface: HTML 5, Bootstrap, Javascript.
+\item Firewall e IDS: IPtables \& Snort
+\end{itemize}
+
+
+\subsubsection{Recursos de hardware:}
+\begin{itemize}
+\item Google Cloud Cluster - GCE (Single Instances for DB and CDN)
+\item Computadores da ADMIN-FCUL para testes e servidores locais
+\end{itemize}
+
+%---------------------------------------------------------------------------------------------
+
+\chapter{Conclusão}
+
+Perante o projecto que nos foi proposto, definimos os requisitos funcionais e não funcionais como pilares da nossa proposta de trabalho.
+\\
+
+\noindent Através de uma pesquisa aos \textit {websites} referidos na introdução e um conjunto de boas práticas de serviços \textit {web}, adicionamos funcionalidades possíveis de implementar no SI, e que determinam uma plataforma única de aceder aos conteúdos propostos no projecto. \\
+
+\noindent No entanto, achamos relevante referir que esta proposta é um pouco irrealista, tendo em conta o tempo disponivel para a sua realização.
+
+%--------------------------------------------------------------------------------------------- Refazer
+
+\begin{thebibliography}{1}
+
+\bibitem{notes} Leslie Lamport {\em LaTEX: a document preparation system,}
+  2nd edition, 1994.
+
+\bibitem{impj} Roger S- Pressman, Bruce Maxim, {\em Software Engineering: A pratitioner's Appoach,} McGraw-Hill, 8ª edição, 1973.
+
+\bibitem{norman} Página web \textit{soundcloud} {\em https://soundcloud.com/, } 2016.
+
+\bibitem{fo} Página web \textit{bandcamp} {\em https://bandcamp.com/,} 2016.
+
+\bibitem{fo} Página web \textit{ticketline} {\em http://ticketline.sapo.pt/en/,} 2016.
+
+\bibitem{fo} Página web \textit{ticketmaster} {\em http://www.ticketmaster.com/,} 2016.
+
+\bibitem{fo} Página web \textit{spotify} {\em https://play.spotify.com/,} 2016.
+
+\bibitem{python} Página web sobre Python {\em https://docs.python.org/2/}, 2016. (Documentação Python 2.7).
+
+\bibitem{java} Página web sobre Java {\em https://docs.oracle.com/javase/8}, 2016 ( Documentação Java SE 8).
+
+\bibitem{amazon} \textit{Google Cloud Computing} {\em https://cloud.google.com/}, 2016.
+
+\bibitem{encript} Let's Encript {\em https://letsencrypt.org/}, 2016. (Certificados SSL)
+
+\end{thebibliography}
+
+\clearpage
+
+\end{document}
