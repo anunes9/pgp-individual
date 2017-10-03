@@ -31,3 +31,12 @@ No dia 6 de outubro, o aluno deverá entregar:
 1) o código da aplicação Web num ficheiro zip (que deverá incluir também um ficheiro de texto com as instruções para instalação da aplicação num servidor Web, caso seja necessário); 
 2) uma timesheet com o registo de horas gastas em cada dia em cada tarefa; 
 3) um relatório com os desvios e alterações ao planeamento e a sua justificação.
+
+## Instalação
+
+Para a utilização deste projecto é necessário ter o python3 e o flask instalado. Depois é so ir até a pasta do projecto e fazer "python app.py"
+
+## Desenvolvimento
+
+Tarefas:
+
