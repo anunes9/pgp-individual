@@ -11,7 +11,6 @@ $(document).on("click", function(e){
 });
 
 function loan_post() {
-  console.log("click")
   var object = $("#loan_object").val();
   var name = $("#loan_name").val();
   console.log("object", object, "name", name);
@@ -23,7 +22,7 @@ function loan_post() {
     data: JSON.stringify( { "object": $('#loan_object').val(), "name": $('#loan_name').val() } ),
     processData: false,
     success: function( data, textStatus, jQxhr ){
-        $('#response pre').html( JSON.stringify( data ) );
+        console.log(data.data);
     },
     error: function( jqXhr, textStatus, errorThrown ){
         console.log( errorThrown );

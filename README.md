@@ -38,5 +38,27 @@ Para a utilização deste projecto é necessário ter o python3 e o flask instal
 
 ## Desenvolvimento
 
-Tarefas:
+Tarefas planeadas:
 
+- [x] Desenvolver base 
+    - [x] Servidor Flask - 2 horas
+    - [x] Página inicial (html + css) - 2 horas
+    
+- [ ] Funcionalidade Registar Empréstimo
+    - [x] html + css - 2 horas
+    - [ ] javascript - 2 horas
+    - [ ] ligação ao servidor - 2 horas
+
+- [ ] Funcionalidade Registar Devolução
+    - [x] html + css - 2 horas
+    - [ ] javascript - 2 horas
+    - [ ] ligação ao servidor - 2 horas
+
+- [ ] Funcionalidade Listar Empréstimos
+    - [x] html + css - 2 horas
+    - [ ] javascript - 2 horas
+    - [ ] ligação ao servidor - 2 horas
+    
+- [ ] Finalizar
+    - [ ] Testes - 2 horas
+    - [ ] Documentação - 1 hora
