@@ -11,22 +11,42 @@ $(document).on("click", function(e){
 });
 
 function loan_post() {
-  var object = $("#loan_object").val();
-  var name = $("#loan_name").val();
-  console.log("object", object, "name", name);
   $.ajax({
     url: '/loan',
     dataType: 'json',
     type: 'post',
     contentType: 'application/json',
-    data: JSON.stringify( { "object": $('#loan_object').val(), "name": $('#loan_name').val() } ),
+    data: JSON.stringify({"object": $('#loan_object').val(), "name": $('#loan_name').val()}),
     processData: false,
-    success: function( data, textStatus, jQxhr ){
-        console.log(data.data);
+    success: function(data){
+        var row = data.data;
+        $('#my_table').append('<tr><td>'+row[0]+'</td>' +
+               '<td>'+row[1]+'</td>' +
+               '<td>'+row[2]+'</td>' +
+               '<td>'+row[3]+'</td>' +
+               '<td>'+row[4]+'</td></tr>');
     },
-    error: function( jqXhr, textStatus, errorThrown ){
-        console.log( errorThrown );
+    error: function(error){
+        console.log(error);
     }
-});
-  console.log("envio")
+  });
 };
+
+function return_post() {
+  $.ajax({
+    url: '/return',
+    dataType: 'json',
+    type: 'post',
+    contentType: 'application/json',
+    data: JSON.stringify({"object": $('#return_id').val(), "name": $('#return_object').val()}),
+    processData: false,
+    success: function(data){
+        var row = data.data;
+        console.log(row)
+    },
+    error: function(error){
+        console.log(error);
+    }
+  });
+};
+

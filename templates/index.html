@@ -53,7 +53,7 @@
       </div>
       <!-- Table -->
       <div class="row table1">
-        <table class="table">
+        <table class="table" id="my_table">
           <thead>
             <tr>
               <th>#</th>
@@ -64,13 +64,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Caneta</td>
-              <td>Andre</td>
-              <td>10-07-2017</td>
-              <td>loaned</td>
-            </tr>
+            {% for row in items %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                </tr>
+            {% endfor %}
           </tbody>
         </table>
         </div>
@@ -89,11 +91,11 @@
       <!-- Loan -->
       <div id="loan_div" class="row align-items-start loan" style="display:none">
         <div class="col-sm col-lg">
-          <label>Object:</label>
+          <label>Object</label>
           <input id="loan_object" type="text" required/>
         </div>
         <div class="col-sm col-lg">
-            <label>Name:</label>
+            <label>Name</label>
             <input id="loan_name" type="text" required/>
         </div>
         <div class="col-sm col-lg">
@@ -103,14 +105,15 @@
       <!-- Return -->
       <div id="return_div" class="row align-items-start return" style="display:none">
           <div class="col-sm col-lg">
-            <p></p>
+            <label>#</label>
+            <input id="return_id" type="text" required/>
           </div>
           <div class="col-sm col-lg">
-            <label>Object:</label>
-            <input type="text" required/>
+            <label>Object</label>
+            <input id="return_object" type="text" required/>
           </div>
           <div class="col-sm col-lg">
-              <a id="return_btn_post" class="btn btn-lg btn-success" href="#" role="button">Return</a>
+              <a id="return_btn_post" class="btn btn-lg btn-success" href="#" role="button" onclick="return_post()">Return</a>
             </div>
         </div>
       <!-- Footer -->
