@@ -1,5 +1,5 @@
 # !/usr/bin/python3
-from flask import Flask, render_template, request, json
+from flask import Flask, render_template, request, json, abort
 import csv
 import os
 import datetime
@@ -17,7 +17,7 @@ def main():
     return render_template('index.html', items=load_db(DATABASE)[1:])
 
 
-@app.route("/loan", methods = ["POST"])
+@app.route("/loan", methods=["POST"])
 def loan():
     db = load_db(DATABASE)
 
@@ -25,14 +25,29 @@ def loan():
 
     new_loan = [str(len(db)), data["object"], data["name"], datetime.date.today().strftime("%d-%m-%Y"), "Loaned"]
 
-    save_db(DATABASE, new_loan)
+    db.append(new_loan)
+
+    save_db(DATABASE, db)
 
     return json.dumps({'status': 'OK', "data": new_loan})
 
 
-@app.route("/return", methods= ["POST"])
-def return_loan() :
-    pass
+@app.route("/return_loan", methods=["POST"])
+def return_loan():
+    db = load_db(DATABASE)
+
+    data = json.loads(request.data)
+
+    id = int(data["id"])
+
+    if db[id][4] == "Returned":
+        status = 'NOK'
+    else:
+        save_db(DATABASE, db)
+        db[id][4] = "Returned"
+        status = 'OK'
+
+    return json.dumps({'status': status, 'data': 'OK'})
 
 
 def load_db(filename):
@@ -42,10 +57,11 @@ def load_db(filename):
         return [row for row in reader]
 
 
-def save_db(filename, row):
-    with open(filename, 'a') as database:
+def save_db(filename, db):
+    with open(filename, 'w') as database:
         writer = csv.writer(database, delimiter=';', lineterminator='\n')
-        writer.writerow(row)
+        for row in db:
+            writer.writerow(row)
 
 
 if __name__ == '__main__':

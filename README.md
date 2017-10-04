@@ -44,21 +44,21 @@ Tarefas planeadas:
     - [x] Servidor Flask - 2 horas
     - [x] Página inicial (html + css) - 2 horas
     
-- [ ] Funcionalidade Registar Empréstimo
+- [x] Funcionalidade Registar Empréstimo
     - [x] html + css - 2 horas
-    - [ ] javascript - 2 horas
-    - [ ] ligação ao servidor - 2 horas
+    - [x] javascript - 2 horas
+    - [x] ligação ao servidor - 2 horas
 
-- [ ] Funcionalidade Registar Devolução
+- [x] Funcionalidade Registar Devolução
     - [x] html + css - 2 horas
-    - [ ] javascript - 2 horas
-    - [ ] ligação ao servidor - 2 horas
+    - [x] javascript - 2 horas
+    - [x] ligação ao servidor - 2 horas
 
-- [ ] Funcionalidade Listar Empréstimos
+- [x] Funcionalidade Listar Empréstimos
     - [x] html + css - 2 horas
-    - [ ] javascript - 2 horas
-    - [ ] ligação ao servidor - 2 horas
+    - [x] javascript - 2 horas
+    - [x] ligação ao servidor - 2 horas
     
 - [ ] Finalizar
-    - [ ] Testes - 2 horas
+    - [x] Testes - 2 horas
     - [ ] Documentação - 1 hora
