@@ -12,7 +12,7 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(APP_ROOT, 'static/db/database.csv')
 
 
-@app.route("/", methods = ["GET"])
+@app.route("/", methods=["GET"])
 def main():
     return render_template('index.html', items=load_db(DATABASE)[1:])
 
