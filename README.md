@@ -34,7 +34,7 @@ No dia 6 de outubro, o aluno deverá entregar:
 
 ## Instalação
 
-Para a utilização deste projecto é necessário ter o python3 e o flask instalado. Depois é so ir até a pasta do projecto e fazer "python app.py"
+Para a utilização deste projeto é necessário ter o python3 e o flask instalado. O passo seguinte é navegar até a pasta do projeto e fazer "python3 app.py".
 
 ## Desenvolvimento
 
@@ -59,6 +59,26 @@ Tarefas planeadas:
     - [x] javascript - 2 horas
     - [x] ligação ao servidor - 2 horas
     
-- [ ] Finalizar
+- [x] Finalizar
     - [x] Testes - 2 horas
-    - [ ] Documentação - 1 hora
+    - [x] Documentação - 1 hora
+    
+    
+Tabela de tempo de cada tarefa
+
+| Tarefa          | Tempo Planeado (horas) | Tempo Usado (horas) |
+| :---            |         :---:          |       :---:         |
+| Servidor Flask  | 2                      | 0.96                |          
+| Página incial   | 2                      | 1.33                |         
+| Reg Emp (a)     | 2                      | 0.76                |        
+| Reg Emp (b)     | 2                      | 0.86                |       
+| Reg Emp (c)     | 2                      | 1.16                |      
+| Reg Dev (a)     | 2                      | 0.53                |     
+| Reg Dev (b)     | 2                      | 0.46                |    
+| Reg Dev (c)     | 2                      | 1.53                |   
+| Listar Emp (a)  | 2                      | 0.95                |  
+| Listar Emp (b)  | 2                      | 0.50                | 
+| Listar Emp (c)  | 2                      | 0.50                |
+| Testes          | 2                      | 1.63                |
+| Documentação    | 1                      | 0.93                |
+| Total           | 25                     | 12.1                |

@@ -36,7 +36,7 @@
   /*
 
   Depois de elaborar a pagina decidi remover a barra de navegacao de modo a tornar a
-  interface mais simples
+  interface mais simples pois nao era necessaria
 
   .navbar {
     background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7),to(#eee));

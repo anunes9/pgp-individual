@@ -38,7 +38,7 @@ function loan_post() {
         }
     }
   });
-};
+}
 
 function return_post() {
     var id = $('#return_id').val();
@@ -51,7 +51,6 @@ function return_post() {
     processData: false,
     success: function(data) {
         if (data.status == 'OK') {
-            var row = data.data;
             $('tr:eq(' + id + ') td:eq(4)', my_table).html("Returned");
             $("#return_div").toggle();
             $('#return_id').val('');
@@ -63,5 +62,5 @@ function return_post() {
         }
     }
   });
-};
+}
 

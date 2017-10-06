@@ -11,6 +11,8 @@
 \usepackage{multicol}
 \usepackage{hyphenat}
 \usepackage{booktabs}
+\usepackage{array}
+\usepackage{indentfirst}
 
 \makeindex
 
@@ -64,7 +66,6 @@ O aluno poderá acrescentar mais funcionalidades se assim o entender. A aplicaç
 Este projeto foi dividido em cinco fases de implementação:
 
 \\
-\noindent
 \begin{enumerate}
 	\item Desenvolver Base
   	\begin{itemize}
@@ -98,41 +99,51 @@ Este projeto foi dividido em cinco fases de implementação:
 
 \newpage
 Para cada tarefa foi planeado um tempo de execução, apresentado na tabela seguinte:
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\arraybackslash}p{#1}}
 \begin{table}[h]
 \centering
-\begin{tabular}{l|c|c}
+\begin{tabular}{L{4cm}|P{2.5cm}|P{2.5cm}}
 
 Tarefa 			& Tempo Planeado (horas) & Tempo Usado (horas) \\ \hline
-Servidor Flask  & 2              & 1           \\
-Página incial   & 2              & 1           \\
-Reg Emp (a)     & 2              & 1           \\
-Reg Emp (b)     & 2              & 1           \\
-Reg Emp (c)     & 2              & 1           \\
-Reg Dev (a)     & 2              & 1           \\
-Reg Dev (b)     & 2              & 1           \\
-Reg Dev (c)     & 2              & 1           \\
-Listar Emp (a)  & 2              & 1           \\
-Listar Emp (b)  & 2              & 1           \\
-Listar Emp (c)  & 2              & 1           \\
-Testes          & 2              & 1           \\
-Documentação    & 1              & 1          
+Servidor Flask  & 2              & 0.96           \\
+Página incial   & 2              & 1.33           \\
+Reg Emp (a)     & 2              & 0.76           \\
+Reg Emp (b)     & 2              & 0.86           \\
+Reg Emp (c)     & 2              & 1.16           \\
+Reg Dev (a)     & 2              & 0.53           \\
+Reg Dev (b)     & 2              & 0.46           \\
+Reg Dev (c)     & 2              & 1.53           \\
+Listar Emp (a)  & 2              & 0.95           \\
+Listar Emp (b)  & 2              & 0.50           \\
+Listar Emp (c)  & 2              & 0.50           \\
+Testes          & 2              & 1.63           \\
+Documentação    & 1              & 0.93           \\ \hline
+Total           & 25             & 12.1
 
 \end{tabular}
 \\~\\
 \caption{Tabela de tempo de cada tarefa}
+\label{table:tabela_tempo}
 \end{table}
-
-cenas
-
 
 \clearpage
 \newpage
-\section{Conclusão}
+\section{Desenvolvimento}
+\vskip 0.5 cm
 
-O objetivo principal deste relatório é a construção e a aplicação de um modelo de otimização do número de funcionários da empresa Zuloc de modo a otimizar a sua produção de vacinas e manter lucro.\\
-Com a análise da primeira fase, caso em que o número de funcionários é 48, podemos concluir que a empresa não estaria a ser capaz de produzir as vacinas necessárias para o número de encomendas que recebe por isso esse número de funcionários não é o ideal.\\
-Com a análise da segunda fase, caso em que o número de funcionários foi otimizado para 193, podemos concluir que com esse número de funcionários a empresa já seria capaz de cumprir com o número de vacinas necessárias para as encomendas recebidas e mesmo assim manter uma taxa de ocupação de mão de obra acima dos 80\%.\\
-Concluímos então que com a contratação de 145 novos empregados a empresa Zuloc iria beneficiar de um aumento de capacidade de produção de vacinas e assim concluir todas as encomendas recebidas sem deixar encomendas em atraso.
+Depois de uma análise rápida às tecnologias necessárias para desenvolver o projeto, escolhi desenvolver o servidor em python 3 utilizando a framework Flask devido à sua simplicidade, rápida elaboração e experiência prévia com a framework. A parte do design da página web foi feita apenas com uma tabela e dois botões para interagir com o utilizador, algo simples de elaborar e funcional. Quando é executada alguma das ações de empréstimo ou retorno de um objeto a aparece uma confirmação ao utilizador e a tabela é atualizada automaticamente.
+De modo a tornar a aplicação web persistente, tenho um ficheiro csv que é usado como base de dados para guardar o registo dos empréstimos. Esta base de dados é atualizada sempre que há um empréstimo ou uma devolução. 
+
+\subsection{Instalação}
+
+Para a utilização deste projeto é necessário ter o python3 e o flask instalado. O passo seguinte é navegar até a pasta do projeto e fazer "python3 app.py".
+
+\subsection{Tempo de desenvolvimento}
+
+Um dos objetivos deste projeto individual era termos uma noção do planeamento que é preciso fazer antes da fase de desenvolvimento, algo fulcral num projeto de média/grande dimensão. No início do projeto é definido um plano e uma ordenação das tarefas a elaborar, com tempos bem definidos para cada tarefa, facto que deve ser levado em conta no mundo profissional. Portanto, antes de começar a 
+"martelar" código foi necessário elaborar a Tabela \ref{table:tabela_tempo} com uma estimativa do tempo necessário para cada tarefa, com base em projetos anteriormente realizados. Esse planeamento foi feito usando o software Project 2016 da Microsoft. \par Depois de o desenvolvimento estar finalizado constatei que o tempo que foi usado para a realização do projeto foi inferior ao tempo planeado. Após de finalizar a funcionalidade "registar um empréstimo" foi muito mais rápido implementar as outras funcionalidades, visto que usavam código parecido. \par O tempo previsto para a elaboração do projeto foi de 25 horas, o tempo real utilizado foi de 11 horas e 9 minutos (12.1 horas). No final do projeto posso concluir que poderia haver um ajuste no tempo para cada tarefa, dado que o projeto é relativamente simples.
 
 %fim do documento
 \end{document}
