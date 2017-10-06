@@ -1,0 +1,149 @@
+ %formatacao do documento e tipo do documento
+\documentclass[12pt, a4paper, twoside]{article}
+
+%pacotes de extensoes
+\usepackage[portuges]{babel} %pkg da lingua portugues
+\usepackage[latin1,utf8]{inputenc} %pkg da lingua portugues
+\usepackage{titlepic} %inserir imagens na capa
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor} %usar fomatacao nas tabelas
+\usepackage{geometry}\geometry{a4paper=true,portrait=true,left=3cm,right=3cm,top=2.5cm,bottom=3.5cm}
+\usepackage{multicol}
+\usepackage{hyphenat}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{indentfirst}
+
+\makeindex
+
+%inicio do documento
+\begin{document}
+
+%inserir capa / titulo
+\title{
+Departamento de Informática\\Licenciatura em Tecnologias de Informação\\
+\vskip 1 cm
+\includegraphics[height=5 cm]{logo_fcul.png}
+\vskip 1 cm
+Planeamento e Gestão de Projecto\\
+\vskip 1 cm
+Relatório Projecto individual}
+\author{André Nunes\\43304}
+\date{}
+
+\maketitle
+
+\newpage
+%indice
+\tableofcontents
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\section{Introdução}
+\vskip 1 cm
+
+Este projeto tem como objetivo proporcionar ao aluno uma primeira experiência de planeamento e gestão de um projeto de software. Nesse sentido, a ênfase da execução do projeto deve ser colocada nas tarefas de planeamento e gestão, e não nas tarefas de desenvolvimento (ou seja, não se espera que o produto de software entregue no final do projeto apresente elevados níveis de eficácia e eficiência).\\
+
+\textbf{Produto}\\
+
+Pretende-se que o aluno desenvolva uma aplicação Web para registo de objetos emprestados pelo utilizador. No mínimo, a aplicação deve realizar as seguintes funcionalidades:
+\begin{itemize}
+\item registar um empréstimo de um objeto a indicar, numa data a indicar, a uma pessoa a indicar;
+\item registar a devolução de um objeto emprestado, numa data a indicar;
+\item ver uma lista de objetos emprestados atualmente.
+\end{itemize}
+
+O aluno poderá acrescentar mais funcionalidades se assim o entender. A aplicação Web não deve fazer uso de uma base de dados externa.
+
+\newpage
+\section{Planeamento das tarefas}
+\vskip 1 cm
+
+Este projeto foi dividido em cinco fases de implementação:
+
+\\
+\begin{enumerate}
+	\item Desenvolver Base
+  	\begin{itemize}
+		\item Servidor Flask
+  		\item Página inicial (html + css)
+  	\end{itemize}
+  	\item Funcionalidade Registar Empréstimo (Reg Emp)
+  	\begin{itemize}
+  		\item Html + css (a)
+  		\item Javascript (b)
+  		\item Ligação ao servidor (c)
+	\end{itemize}
+	\item Funcionalidade Registar Devolução (Reg Dev)
+  	\begin{itemize}
+  		\item Html + css (a)
+  		\item Javascript (b)
+  		\item Ligação ao servidor (c)
+	\end{itemize}
+	\item Funcionalidade Listar Empréstimos (Listar Emp)
+  	\begin{itemize}
+  		\item Html + css (a)
+  		\item Javascript (b)
+  		\item Ligação ao servidor (c)
+	\end{itemize}
+	\item Desenvolver Base
+  	\begin{itemize}
+  		\item Testes
+  		\item Documentação
+	\end{itemize}
+\end{enumerate}
+
+\newpage
+Para cada tarefa foi planeado um tempo de execução, apresentado na tabela seguinte:
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\arraybackslash}p{#1}}
+\begin{table}[h]
+\centering
+\begin{tabular}{L{4cm}|P{2.5cm}|P{2.5cm}}
+
+Tarefa 			& Tempo Planeado (horas) & Tempo Usado (horas) \\ \hline
+Servidor Flask  & 2              & 0.96           \\
+Página incial   & 2              & 1.33           \\
+Reg Emp (a)     & 2              & 0.76           \\
+Reg Emp (b)     & 2              & 0.86           \\
+Reg Emp (c)     & 2              & 1.16           \\
+Reg Dev (a)     & 2              & 0.53           \\
+Reg Dev (b)     & 2              & 0.46           \\
+Reg Dev (c)     & 2              & 1.53           \\
+Listar Emp (a)  & 2              & 0.95           \\
+Listar Emp (b)  & 2              & 0.50           \\
+Listar Emp (c)  & 2              & 0.50           \\
+Testes          & 2              & 1.63           \\
+Documentação    & 1              & 0.93           \\ \hline
+Total           & 25             & 12.1
+
+\end{tabular}
+\\~\\
+\caption{Tabela de tempo de cada tarefa}
+\label{table:tabela_tempo}
+\end{table}
+
+\clearpage
+\newpage
+\section{Desenvolvimento}
+\vskip 0.5 cm
+
+Depois de uma análise rápida às tecnologias necessárias para desenvolver o projeto, escolhi desenvolver o servidor em python 3 utilizando a framework Flask devido à sua simplicidade, rápida elaboração e experiência prévia com a framework. A parte do design da página web foi feita apenas com uma tabela e dois botões para interagir com o utilizador, algo simples de elaborar e funcional. Quando é executada alguma das ações de empréstimo ou retorno de um objeto a aparece uma confirmação ao utilizador e a tabela é atualizada automaticamente.
+De modo a tornar a aplicação web persistente, tenho um ficheiro csv que é usado como base de dados para guardar o registo dos empréstimos. Esta base de dados é atualizada sempre que há um empréstimo ou uma devolução. 
+
+\subsection{Instalação}
+
+Para a utilização deste projeto é necessário ter o python3 e o flask instalado. O passo seguinte é navegar até a pasta do projeto e fazer "python3 app.py".
+
+\subsection{Tempo de desenvolvimento}
+
+Um dos objetivos deste projeto individual era termos uma noção do planeamento que é preciso fazer antes da fase de desenvolvimento, algo fulcral num projeto de média/grande dimensão. No início do projeto é definido um plano e uma ordenação das tarefas a elaborar, com tempos bem definidos para cada tarefa, facto que deve ser levado em conta no mundo profissional. Portanto, antes de começar a 
+"martelar" código foi necessário elaborar a Tabela \ref{table:tabela_tempo} com uma estimativa do tempo necessário para cada tarefa, com base em projetos anteriormente realizados. Esse planeamento foi feito usando o software Project 2016 da Microsoft. \par Depois de o desenvolvimento estar finalizado constatei que o tempo que foi usado para a realização do projeto foi inferior ao tempo planeado. Após de finalizar a funcionalidade "registar um empréstimo" foi muito mais rápido implementar as outras funcionalidades, visto que usavam código parecido. \par O tempo previsto para a elaboração do projeto foi de 25 horas, o tempo real utilizado foi de 11 horas e 9 minutos (12.1 horas). No final do projeto posso concluir que poderia haver um ajuste no tempo para cada tarefa, dado que o projeto é relativamente simples.
+
+%fim do documento
+\end{document}

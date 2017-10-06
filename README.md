@@ -38,7 +38,7 @@ Para a utilização deste projeto é necessário ter o python3 e o flask instala
 
 ## Desenvolvimento
 
-Tarefas planeadas:
+#### Tarefas planeadas:
 
 - [x] Desenvolver base 
     - [x] Servidor Flask - 2 horas
@@ -64,7 +64,7 @@ Tarefas planeadas:
     - [x] Documentação - 1 hora
     
     
-Tabela de tempo de cada tarefa
+#### Tabela de tempo de cada tarefa
 
 | Tarefa          | Tempo Planeado (horas) | Tempo Usado (horas) |
 | :---            |         :---:          |       :---:         |
